@@ -26,6 +26,7 @@ env:
   CONFIG_FILE: .config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
+  BANNER: banner
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -67,6 +68,12 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+        
+    - name: Change banner
+      run: |
+        cd openwrt
+        rm package/base-files/files/etc/banner
+        cp $GITHUB_WORKSPACE/$BANNER package/base-files/files/etc/banner
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
