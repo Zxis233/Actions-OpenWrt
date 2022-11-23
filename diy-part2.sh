@@ -57,6 +57,3 @@ sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/lean/default-settings/files/zzz
 
 # 修改默认wifi密码key为password
 #sed -i 's/encryption=none/encryption=psk2/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
-
-rm package/base-files/files/etc/banner
-cp banner package/base-files/files/etc/banner
